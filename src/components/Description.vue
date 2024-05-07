@@ -18,11 +18,38 @@ export default {
   methods: {
     isBalanced() {
       if(
-        this.description === '' ||
-        /^(?:[^\(\[\{]*[\(\[\{][^\)\]\}]*)*$/i.test(this.description) || 
-        /^(?:[^\(\[\{]*[\)\]\}][^\)\]\}]*)*$/i.test(this.description)
+        this.description.includes('(') ||
+        this.description.includes(')') ||
+        this.description.includes('{') ||
+        this.description.includes('}') ||
+        this.description.includes('[') ||
+        this.description.includes(']')
       ){
-        return 'The text is not balanced.'
+
+        if(this.description.includes('(') || this.description.includes(')')){
+          if(this.description.includes('(') && this.description.includes(')')){
+            
+            if(this.description.includes('{') || this.description.includes('}')){
+              if(this.description.includes('{') && this.description.includes('}')){
+                if(this.description.includes('[') || this.description.includes(']')){
+                  if(this.description.includes('[') && this.description.includes(']')){
+                    return 'The text is balanced.'
+                  }else{
+                    return 'The text is not balanced.'
+                  }
+                }else{
+                  return 'The text is balanced.'
+                }
+              }else{
+                return 'The text is not balanced.'
+              }
+            }else{
+              return 'The text is balanced.'
+            }
+          }else{
+            return 'The text is not balanced.'
+          }
+        }
       }else{
         return 'The text is balanced.'
       }

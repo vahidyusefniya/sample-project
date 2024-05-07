@@ -74,7 +74,6 @@
         </button>
       </div>
     </div>
-    <Description />
   </div>
 </template>
 
