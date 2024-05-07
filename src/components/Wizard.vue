@@ -58,7 +58,12 @@
       v-if="step === 3"
     >
       <div>
-        <Description />
+        <h1>Step: review</h1>  
+        <div class="flex flex-col">
+          <p>Username: valid_username</p>
+          <p>Email: user@local.test</p>
+          
+        </div>
       </div>
       <div class="px-4 w-full flex justify-between gap-4">
         <button class="btn btn-outline btn-primary w-full lg:w-1/6" id="btn-prev" @click="prevStep()">
@@ -69,11 +74,13 @@
         </button>
       </div>
     </div>
+    <Description />
   </div>
 </template>
 
 <script>
 import Description from './Description.vue'
+
 
 export default {
   name: 'Wizard',
